@@ -8,10 +8,8 @@ function Header({setImages}) {
     React.useEffect(() => {
         let input = document.querySelector("input#files")
         input.addEventListener("change", () => {
-            console.log("changed")
             let data = new FormData()
             data.append("files", input.files)
-            console.log(input.files[0])
             Array.from(input.files).map(file => {
                 data.append("files", file)
             })

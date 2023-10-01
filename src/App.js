@@ -19,8 +19,7 @@ function App() {
     React.useEffect(() => {
         document.addEventListener("keydown", event => {
             if (event.key == "Escape") {
-                setImage();
-                updateSelected(images.map(() => false));
+                updateSelected((selected) => selected.map(() => false));
                 set_nSelected(0);
             }
         })
@@ -28,10 +27,14 @@ function App() {
             setImages(data)
         })
     }, [])
+    React.useEffect(() => {
+        // console.log(nSelected)
+        // console.log(selected)
+    }, [nSelected, selected])
     React.useEffect(() => updateSelected(images.map(() => false)), [images])
     return (
         <>
-            {nSelected ? <Options image={image} number={nSelected} setNumber={set_nSelected} updateSelected={updateSelected} downloadImage={downloadImage} images={images} selected={selected}/> : null}
+            {nSelected ? <Options image={image} number={nSelected} setNumber={set_nSelected} updateSelected={updateSelected} downloadImage={downloadImage} images={images} selected={selected} setImages={setImages}/> : null}
             <Header setImages={setImages} />
             {(images && images.length > 0) ? <PhotosGrid selected={selected} nSelected={nSelected} set_nSelected={set_nSelected} images={images} setImage={setImage} updateSelected={updateSelected} setImages={setImages} /> : <h3>No Photos Available</h3>}
             {image && <ImageViewer image={image} setImage={setImage} images={images} setImages={setImages} />}

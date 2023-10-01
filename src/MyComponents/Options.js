@@ -20,8 +20,6 @@ export default function Options({number: n, images, setImages, selected, updateS
             })
         }
     }
-    console.log("typeof setImages 1:")
-    console.log(typeof setImages)
     return (
         <div className="options-selected">
             <div className="selected-nav">
@@ -32,6 +30,15 @@ export default function Options({number: n, images, setImages, selected, updateS
                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                 </svg></div>
                 <div className="numbers">{n} selected</div>
+                { n === selected.length ?
+                <button className="select-all" onClick={() => {
+                    updateSelected(selected => selected.map(() => false))
+                    setNumber(0)
+                }}>Disselect All</button> :
+                <button className="select-all" onClick={() => {
+                    updateSelected(selected => selected.map(() => true))
+                    setNumber(selected.length)
+                }}>Select All</button> }
             </div>
             <div className="buttons">
                 <div className="download-images" onClick={() => downloadImages(images.filter((image, ind) => {

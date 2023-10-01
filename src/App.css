@@ -277,3 +277,15 @@ div.options-selected div.buttons svg {
     height: 1em;
     margin: 0.5rem;
 }
+
+div.options-selected button.select-all {
+    background-color: transparent;
+    border: 2px solid darkblue;
+    padding: 0.3rem 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+}
+
+div.options-selected button.select-all:hover {
+    background-color: rgba(0, 0, 139, 0.2);
+}

@@ -4,9 +4,7 @@ export default function Photo({ image, setImage, ind, selected, set_nSelected, u
     function select() {
         updateSelected(selected => selected.map((val, i) => i == ind ? !val : val))
         set_nSelected((nSelected) => {
-            console.log(selected[ind])
             let res = selected[ind] ? (nSelected - 1) : (nSelected + 1)
-            console.log(res)
             return res
         })
     }

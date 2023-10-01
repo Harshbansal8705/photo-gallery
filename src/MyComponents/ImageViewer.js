@@ -31,11 +31,11 @@ export default function ImageViewer({ image, setImage, images, setImages, downlo
         }
     }
 
-    React.useEffect(() => {
-        document.addEventListener("keydown", arrowPressed)
+    // React.useEffect(() => {
+    //     document.addEventListener("keydown", arrowPressed)
 
-        return () => document.removeEventListener("keydown", arrowPressed)
-    }, [])
+    //     return () => document.removeEventListener("keydown", arrowPressed)
+    // }, [])
     return (
         <div className="image-viewer" onClick={() => setImage()}>
             <div className="up" onClick={(e) => e.stopPropagation()}>
