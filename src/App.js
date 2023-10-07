@@ -18,19 +18,16 @@ function App() {
 
     React.useEffect(() => {
         document.addEventListener("keydown", event => {
-            if (event.key == "Escape") {
+            if (event.key === "Escape") {
                 updateSelected((selected) => selected.map(() => false));
                 set_nSelected(0);
+                setImage();
             }
         })
-        fetch("http://localhost:5000/images").then(data => data.json()).then(data => {
+        fetch("https://photo-gallery-api-bsmz.onrender.com/images").then(data => data.json()).then(data => {
             setImages(data)
         })
     }, [])
-    React.useEffect(() => {
-        // console.log(nSelected)
-        // console.log(selected)
-    }, [nSelected, selected])
     React.useEffect(() => updateSelected(images.map(() => false)), [images])
     return (
         <>

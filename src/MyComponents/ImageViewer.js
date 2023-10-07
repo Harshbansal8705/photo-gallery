@@ -15,7 +15,7 @@ function prevImage(image, images, setImage) {
 }
 
 function deleteImage(filename) {
-    return fetch(`http://localhost:5000/images/${filename}`, {
+    return fetch(`https://photo-gallery-api-bsmz.onrender.com/images/${filename}`, {
         method: 'DELETE',
     }).then(res => res.json()).then(data => data)
 }
@@ -30,12 +30,11 @@ export default function ImageViewer({ image, setImage, images, setImages, downlo
             return document.querySelector("div.prev").click()
         }
     }
+    React.useEffect(() => {
+        document.addEventListener("keydown", arrowPressed)
 
-    // React.useEffect(() => {
-    //     document.addEventListener("keydown", arrowPressed)
-
-    //     return () => document.removeEventListener("keydown", arrowPressed)
-    // }, [])
+        return () => document.removeEventListener("keydown", arrowPressed)
+    }, [])
     return (
         <div className="image-viewer" onClick={() => setImage()}>
             <div className="up" onClick={(e) => e.stopPropagation()}>
