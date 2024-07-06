@@ -24,7 +24,7 @@ function App() {
                 setImage();
             }
         })
-        fetch("https://photo-gallery-api-bsmz.onrender.com/images").then(data => data.json()).then(data => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/images`).then(data => data.json()).then(data => {
             setImages(data)
         })
     }, [])

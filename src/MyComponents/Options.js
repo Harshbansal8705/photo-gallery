@@ -7,7 +7,7 @@ async function downloadImages(images) {
     }
 }
 async function deleteImage(filename) {
-    return fetch(`https://photo-gallery-api-bsmz.onrender.com/images/${filename}`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_URL}/images/${filename}`, {
         method: 'DELETE',
     }).then(res => res.json()).then(data => data)
 }

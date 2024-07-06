@@ -13,7 +13,7 @@ function Header({setImages}) {
             Array.from(input.files).map(file => {
                 data.append("files", file)
             })
-            fetch("https://photo-gallery-api-bsmz.onrender.com/images", {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/images`, {
                 method: "POST",
                 body: data
             }).then(data => data.json()).then(data => {
